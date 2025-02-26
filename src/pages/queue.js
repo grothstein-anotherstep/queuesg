@@ -103,9 +103,13 @@ const Index = () => {
       const getBoardQueueBelongsTo = await axios.get(`${API_ENDPOINT}/queue?id=${queueId}`)
       const { id, name, desc } = getBoardQueueBelongsTo.data
 
+      console.log("The Board ID is: ", id);
+      console.log("The Board Name is: ", name);
+      console.log("The Baord Description is: ", desc);
+
       setBoardId(id)
 
-      const boardInfo = JSON.parse(desc)
+      const boardInfo = desc;
 
       setIsQueueInactive(name.includes('[DISABLED]') || isQueueClosed(boardInfo.openingHours))
       setIsLoading(false)

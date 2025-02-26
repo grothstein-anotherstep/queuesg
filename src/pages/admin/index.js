@@ -66,7 +66,7 @@ const Index = () => {
         );
 
         console.log(response.data);
-        setEditableSettings(JSON.parse(response.data.desc));
+        setEditableSettings(JSON.parse(response.data));
         setBoardData(response.data);
       } catch (error) {
         errorHandler(error);
