@@ -66,7 +66,7 @@ const Index = () => {
         );
 
         console.log(response.data);
-        setEditableSettings(JSON.parse(response.data));
+        setEditableSettings(JSON.parse(response.data.desc));
         setBoardData(response.data);
       } catch (error) {
         errorHandler(error);
@@ -136,7 +136,7 @@ const Index = () => {
     const key = authentication.getKey();
 
     let boardId =
-      query.boardId || prompt('Please enter your queue id', 'E.g. Yg9jAKfn');
+      query.boardId || prompt('Please enter your queue id');
 
     if (token && key) {
       router.push({

@@ -105,11 +105,11 @@ const Index = () => {
 
       console.log("The Board ID is: ", id);
       console.log("The Board Name is: ", name);
-      console.log("The Baord Description is: ", desc);
+      console.log("The Board Description is: ", desc);
 
       setBoardId(id)
 
-      const boardInfo = desc;
+      const boardInfo = JSON.parse(desc);
 
       setIsQueueInactive(name.includes('[DISABLED]') || isQueueClosed(boardInfo.openingHours))
       setIsLoading(false)
