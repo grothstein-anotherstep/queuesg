@@ -2,7 +2,7 @@ import { Box, Flex, Button } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
-import LogoQueue from '../assets/svg/logo-queue.svg'
+import LogoQueue from '../assets/svg/logo-as-queue.svg'
 import useTranslation from 'next-translate/useTranslation'
 
 export const NavBar = (props) => {

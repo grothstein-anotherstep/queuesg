@@ -102,7 +102,7 @@ const Index = () => {
       // 2. Gets info stored as JSON in board description
       const getBoardQueueBelongsTo = await axios.get(`${API_ENDPOINT}/queue?id=${queueId}`)
       const { id, name, desc } = getBoardQueueBelongsTo.data
-
+      console.log("The Board Data is: ", getBoardQueueBelongsTo.data);
       console.log("The Board ID is: ", id);
       console.log("The Board Name is: ", name);
       console.log("The Board Description is: ", desc);

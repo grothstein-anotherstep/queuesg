@@ -2,6 +2,7 @@ import { Box, Flex, Text } from '@chakra-ui/react'
 import useTranslation from 'next-translate/useTranslation'
 
 import LogoOgp from "../../src/assets/svg/logo-ogp.svg"
+import LogoAs from "../../src/assets/svg/logo-as-white.svg"
 
 export const Footer = (props) => {
   const { t, lang } = useTranslation('common')
@@ -42,5 +43,33 @@ export const Footer = (props) => {
       </Text>
     </Box>
 
+    <Box
+      color="white"
+      w="360px"
+      px={4}
+      py={8}>
+      <Text
+        color="gray.500"
+        textStyle="body2"
+        mb={4}
+      >
+        {t('updated-by')}
+      </Text>
+      <a
+        href="https://anotherstep.org"
+        target="_blank"
+        >
+        <LogoAs
+          width="180px"
+        />
+      </a>
+      <Text
+        color="gray.500"
+        textStyle="body2"
+        mt={4}
+      >
+        {t('copyright')}
+      </Text>
+    </Box>
   </Flex>
 }
