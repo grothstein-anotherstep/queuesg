@@ -51,7 +51,7 @@ export const NavBar = (props) => {
           />
         </a>
       </Box>
-      <Box>
+      <Box className={"hide-on-print"}>
         {languages.map((lng, idx) => (
           <>
             {idx > 0 && <span style={{ color: "#636467" }} >|</span>}

@@ -1,0 +1,11 @@
+@media screen {
+    .hide-on-print {
+      display: block;
+    }
+}
+  
+@media print {
+    .hide-on-print {
+      display: none;
+    }
+}
