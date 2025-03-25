@@ -151,8 +151,8 @@ const Index = () => {
       e.preventDefault()
 
       // Check if Employee Number is valid
-      if (registrationFields.includes('employeeNumber')) {
-        if (validate(e.target['employeeNumber'].value) === false) {
+      if (registrationFields.includes('employeenumber')) {
+        if (validate(e.target['employeenumber'].value) === false) {
           setInvalidEmployeeNumber(true)
           return
         } else {
@@ -286,7 +286,7 @@ const Index = () => {
                     pattern="^(\d{5})$"
                     maxLength="5"
                     minLength="5"
-                    placeholder="123456"
+                    placeholder="12345"
                     required
                     title="Postal code (Zip Code) should be an 5 digit number"
                   />
@@ -304,7 +304,7 @@ const Index = () => {
                     layerStyle="formInput"
                     isInvalid={invalidEmployeeNumber && "error.500"}
                     onChange={() => setInvalidEmployeeNumber(false)}
-                    name="employeeNumber"
+                    name="employeenumber"
                     maxLength="10"
                     minLength="1"
                     placeholder="xxx"
