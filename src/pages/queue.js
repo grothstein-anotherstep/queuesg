@@ -152,6 +152,7 @@ const Index = () => {
 
       // Check if Employee Number is valid
       if (registrationFields.includes('employeenumber')) {
+        console.log("Employee Number: ", validate(e.target['employeenumber'].value))
         if (validate(e.target['employeenumber'].value) === false) {
           setInvalidEmployeeNumber(true)
           return
