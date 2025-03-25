@@ -298,7 +298,7 @@ const Index = () => {
                     pb="0.5rem"
                     textStyle="subtitle1"
                   >
-                    employee-number
+                    {t('employee-number')}
                   </Text>
                   <Input
                     layerStyle="formInput"
@@ -306,11 +306,11 @@ const Index = () => {
                     onChange={() => setInvalidEmployeeNumber(false)}
                     name="employeeNumber"
                     maxLength="10"
-                    minLength="10"
+                    minLength="1"
                     placeholder="xxx"
                     required
                   />
-                  {invalidEmployeeNumber && <Text color="error.500" mt="-10px"> {t('invalid')} NRIC</Text>}
+                  {invalidEmployeeNumber && <Text color="error.500" mt="-10px"> {t('invalid')} {t('employee-number')}</Text>}
                 </>}
 
                 {Array.isArray(categories) && categories.length > 0 && <>
