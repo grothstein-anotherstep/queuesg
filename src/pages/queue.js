@@ -48,7 +48,7 @@ const Index = () => {
   const [categories, setCategories] = useState([])
   const [waitTimePerTicket, setWaitTimePerTicket] = useState()
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [invalidNRIC, setInvalidNRIC] = useState(false)
+  const [invalidEmployeeNumber, setInvalidEmployeeNumber] = useState(false)
 
   useEffect(() => {
     const query = queryString.parse(location.search)
@@ -102,10 +102,6 @@ const Index = () => {
       // 2. Gets info stored as JSON in board description
       const getBoardQueueBelongsTo = await axios.get(`${API_ENDPOINT}/queue?id=${queueId}`)
       const { id, name, desc } = getBoardQueueBelongsTo.data
-      console.log("The Board Data is: ", getBoardQueueBelongsTo.data);
-      console.log("The Board ID is: ", id);
-      console.log("The Board Name is: ", name);
-      console.log("The Board Description is: ", desc);
 
       setBoardId(id)
 
@@ -154,13 +150,13 @@ const Index = () => {
     try {
       e.preventDefault()
 
-      // Check if NRIC is valid
-      if (registrationFields.includes('nric')) {
-        if (validate(e.target['nric'].value) === false) {
-          setInvalidNRIC(true)
+      // Check if Employee Number is valid
+      if (registrationFields.includes('employeeNumber')) {
+        if (validate(e.target['employeeNumber'].value) === false) {
+          setInvalidEmployeeNumber(true)
           return
         } else {
-          setInvalidNRIC(false)
+          setInvalidEmployeeNumber(false)
         }
       }
 
@@ -268,11 +264,11 @@ const Index = () => {
                     layerStyle="formInput"
                     type="tel"
                     name="contact"
-                    pattern="^(8|9)(\d{7})$"
-                    maxLength="8"
-                    minLength="8"
+                    pattern="^([0-9])(\d{9})$"
+                    maxLength="10"
+                    minLength="10"
                     required
-                    title="Mobile number should be an 8 digit Singapore number i.e. 8xxxxxxx"
+                    title="Mobile number should be an 10 digit number (including area code) i.e. 914xxxxxxx"
                   />
                 </>}
                 {registrationFields.includes('postalcode') && <>
@@ -287,34 +283,34 @@ const Index = () => {
                     layerStyle="formInput"
                     type="tel"
                     name="postalcode"
-                    pattern="^(\d{6})$"
-                    maxLength="6"
-                    minLength="6"
+                    pattern="^(\d{5})$"
+                    maxLength="5"
+                    minLength="5"
                     placeholder="123456"
                     required
-                    title="Postal code should be an 6 digit number"
+                    title="Postal code (Zip Code) should be an 5 digit number"
                   />
                 </>}
 
-                {registrationFields.includes('nric') && <>
+                {registrationFields.includes('employeenumber') && <>
                   <Text
                     pt="0.5rem"
                     pb="0.5rem"
                     textStyle="subtitle1"
                   >
-                    NRIC
+                    employee-number
                   </Text>
                   <Input
                     layerStyle="formInput"
-                    isInvalid={invalidNRIC && "error.500"}
-                    onChange={() => setInvalidNRIC(false)}
-                    name="nric"
-                    maxLength="9"
-                    minLength="9"
-                    placeholder="SxxxxxxxA"
+                    isInvalid={invalidEmployeeNumber && "error.500"}
+                    onChange={() => setInvalidEmployeeNumber(false)}
+                    name="employeeNumber"
+                    maxLength="10"
+                    minLength="10"
+                    placeholder="xxx"
                     required
                   />
-                  {invalidNRIC && <Text color="error.500" mt="-10px"> {t('invalid')} NRIC</Text>}
+                  {invalidEmployeeNumber && <Text color="error.500" mt="-10px"> {t('invalid')} NRIC</Text>}
                 </>}
 
                 {Array.isArray(categories) && categories.length > 0 && <>

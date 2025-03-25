@@ -214,7 +214,7 @@ const Index = () => {
     const extractDataFromCardActions = (cardActions) => {
       let JOINED;
       let name;
-      let nric = null;
+      let employeeNumber = null;
       let ticketNumber;
       let cardId;
       let description;
@@ -239,7 +239,7 @@ const Index = () => {
           const cardInfo = doneCardMap.get(data.card.id);
           description = cardInfo.desc;
           try {
-            nric = JSON.parse(cardInfo.desc).nric ?? null
+            employeeNumber = JSON.parse(cardInfo.desc).employeeNumber ?? null
           } catch (e) { }
           labels = cardInfo.labels.map((lbl) => lbl.name).join(',');
           members = cardInfo.members.map((mbrs) => mbrs.username).join(',');
@@ -264,7 +264,7 @@ const Index = () => {
       return {
         name,
         ticketNumber,
-        nric,
+        employeeNumber,
         date,
         description,
         comments: comments.reverse().join('\n'),
@@ -473,7 +473,7 @@ const Index = () => {
                           options={{
                             name: 'Full Name',
                             contact: 'Phone Number',
-                            nric: 'NRIC',
+                            employeenumber: 'Employee Number',
                             postalcode: 'Postal Code',
                             description: 'Description',
                           }}

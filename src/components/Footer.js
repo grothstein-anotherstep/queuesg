@@ -51,7 +51,7 @@ export const Footer = (props) => {
       <Text
         color="gray.500"
         textStyle="body2"
-        mb={4}
+        mb={1}
       >
         {t('updated-by')}
       </Text>
@@ -63,13 +63,6 @@ export const Footer = (props) => {
           width="180px"
         />
       </a>
-      <Text
-        color="gray.500"
-        textStyle="body2"
-        mt={4}
-      >
-        {t('copyright')}
-      </Text>
     </Box>
   </Flex>
 }
