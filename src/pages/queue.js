@@ -4,7 +4,6 @@ import Head from 'next/head'
 import queryString from 'query-string'
 import axios from 'axios'
 import url from 'is-url'
-import { validate } from 'nric'
 
 import { isQueueClosed } from '../utils'
 
@@ -152,8 +151,8 @@ const Index = () => {
 
       // Check if Employee Number is valid
       if (registrationFields.includes('employeenumber')) {
-        console.log("Employee Number: ", validate(e.target['employeenumber'].value))
-        if (validate(e.target['employeenumber'].value) === false) {
+        console.log("Employee Number: ", e.target['employeenumber'].value)
+        if (e.target['employeenumber'].value === false) {
           setInvalidEmployeeNumber(true)
           return
         } else {
